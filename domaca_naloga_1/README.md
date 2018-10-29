@@ -13,7 +13,7 @@ Računalniška orodja v Matematiki
 ### [Učni list - Pravokotni koordinatni sistem.pdf](https://www.sc-nm.si/sss/si/file/download/834_5ffe0b5e352d/U%C4%8Dni%20list%20-%20Pravokotni%20koordinatni%20sistem.pdf)
 - 4
 ### [Učni list - Geometrija.pdf](https://www.sc-nm.si/sss/si/file/download/908_fa3f990d1fc9/U%C4%8Dni%20list%20-%20Geometrija.pdf)
-- 64
+- 6
 ### [Učni list - Kvadratna enačba.pdf](https://www.sc-nm.si/sss/si/file/download/761_c78a25b65160/U%C4%8Dni%20list%20-%20Kvadratna%20ena%C4%8Dba.pdf)
 - 16 
 ### [Učni list - Ploščine geometrijskih likov.pdf](https://www.sc-nm.si/sss/si/file/download/790_96f4e0ca1618/U%C4%8Dni%20list%20-%20Plo%C5%A1%C4%8Dine%20geometrijskih%20likov.pdf)
