@@ -1,0 +1,2143 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     82651,       2135]
+NotebookOptionsPosition[     76673,       1931]
+NotebookOutlinePosition[     77051,       1947]
+CellTagsIndexPosition[     77008,       1944]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["PROJEKTNA NALOGA PRI PREDMETU ROM: Hitrostno plezanje",
+ FontSize->22,
+ FontColor->RGBColor[
+  0.21176470588235294`, 0.47843137254901963`, 0.5372549019607843],
+ Background->RGBColor[0.9, 1, 1]]], "Text",
+ CellChangeTimes->{{3.7557597280310583`*^9, 3.75575974152734*^9}, {
+  3.7590832726250772`*^9, 3.7590832778068943`*^9}}],
+
+Cell["\<\
+Na treningu \[SHacek]portnega plezanja sem sestavila dve smeri in \
+\[SHacek]topala vade\[CHacek]e, kako hitro ju bodo preplezali. Vsak je vsako \
+smer preplezal \[SHacek]tirikrat. Rezultate sem vnesla v exel razpredilnico \
+in jo vnesla v Mathematico.\
+\>", "Text",
+ CellChangeTimes->{{3.7557833331858664`*^9, 3.7557834096309175`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755759871186584*^9, 3.755759875734539*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\\[CapitalSHacek]pela\\\\Documents\"\>"], \
+"Output",
+ CellChangeTimes->{3.7557598770385537`*^9, 3.758959631729224*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NotebookDirectory", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755759884810392*^9, 3.755759902066799*^9}}],
+
+Cell[BoxData["\<\"E:\\\\SPELA\\\\PRAKTICNA MAT\\\\ROM\\\\Projektna naloga\\\\\
+\"\>"], "Output",
+ CellChangeTimes->{3.755759902865403*^9, 3.7589596321179814`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7557599206611257`*^9, 3.75575993865812*^9}}],
+
+Cell[BoxData["\<\"E:\\\\SPELA\\\\PRAKTICNA MAT\\\\ROM\\\\Projektna \
+naloga\"\>"], "Output",
+ CellChangeTimes->{3.7557599397238398`*^9, 3.7589596321679516`*^9}]
+}, Open  ]],
+
+Cell["Najprej sem ustrezno nastavila direktorij.", "Text",
+ CellChangeTimes->{{3.759083297271907*^9, 3.7590833095103683`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755759944623746*^9, 3.755759971945033*^9}, {
+  3.755760006338125*^9, 3.75576001424693*^9}, {3.75576007377071*^9, 
+  3.7557600761159463`*^9}}],
+
+Cell[BoxData["\<\"E:\\\\SPELA\\\\PRAKTICNA MAT\\\\ROM\\\\Projektna \
+naloga\"\>"], "Output",
+ CellChangeTimes->{3.755759948676742*^9, 3.758959632197933*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"podatki", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"Import", "[", "\"\<hitrost.xlsx\>\"", "]"}], " ", "//", " ", 
+   "First"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755760097081154*^9, 3.755760130822796*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Ime\"\>", ",", "\<\"Priimek\"\>", 
+     ",", "\<\"1.smer prvi\[CHacek] \"\>", 
+     ",", "\<\"1.smer drugi\[CHacek]\"\>", 
+     ",", "\<\"1.smer tretji\[CHacek]\"\>", 
+     ",", "\<\"1.smer \[CHacek]etrti\[CHacek]\"\>", 
+     ",", "\<\"2.smer prvi\[CHacek]\"\>", 
+     ",", "\<\"2.smer drugi\[CHacek] \"\>", 
+     ",", "\<\"2.smer tretji\[CHacek]\"\>", 
+     ",", "\<\"2.smer \[CHacek]etrti\[CHacek]\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bevk\"\>", ",", "16.`", ",", "24.`", 
+     ",", "15.2`", ",", "12.`", ",", "17.6`", ",", "15.9`", ",", "14.8`", ",",
+      "9.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bajda\"\>", ",", "24.3`", ",", "18.7`", 
+     ",", "18.2`", ",", "13.5`", ",", "15.8`", ",", "19.`", ",", "22.1`", ",",
+      "14.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"O\[ZHacek]bej\"\>", ",", "\<\"Stanek\"\>", ",", "34.`", ",", 
+     "28.8`", ",", "32.`", ",", "13.1`", ",", "19.1`", ",", "21.2`", ",", 
+     "41.`", ",", "30.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maj\"\>", ",", "\<\"Bergant\"\>", ",", "10.`", ",", "10.5`", 
+     ",", "9.`", ",", "11.6`", ",", "10.6`", ",", "8.2`", ",", "12.2`", ",", 
+     "9.2`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Jaka \"\>", ",", "\<\"\[CapitalZHacek]umer\"\>", ",", "19.`",
+      ",", "40.`", ",", "29.7`", ",", "16.8`", ",", "20.`", ",", "20.6`", ",",
+      "29.2`", ",", "15.7`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"\[CapitalZHacek]iga\"\>", 
+     ",", "\<\"\[CapitalCHacek]arman\"\>", ",", "15.6`", ",", "18.3`", ",", 
+     "23.4`", ",", "23.4`", ",", "18.6`", ",", "16.53`", ",", "30.`", ",", 
+     "33.5`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Ju\[SHacek]\"\>", ",", "\<\"Lampe\"\>", ",", "17.4`", ",", 
+     "21.3`", ",", "16.`", ",", "21.3`", ",", "18.6`", ",", "16.3`", ",", 
+     "20.`", ",", "20.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Dorjan \"\>", ",", "\<\"Fritz\"\>", ",", "19.`", ",", "20.`",
+      ",", "28.5`", ",", "27.7`", ",", "13.`", ",", "12.`", ",", "26.5`", ",",
+      "17.2`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.755760142442791*^9, 3.7589596403539104`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", "podatki", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7557601512231026`*^9, 3.7557601590920153`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Ime\"\>", "\<\"Priimek\"\>", "\<\"1.smer prvi\[CHacek] \"\>", \
+"\<\"1.smer drugi\[CHacek]\"\>", "\<\"1.smer tretji\[CHacek]\"\>", \
+"\<\"1.smer \[CHacek]etrti\[CHacek]\"\>", "\<\"2.smer prvi\[CHacek]\"\>", "\<\
+\"2.smer drugi\[CHacek] \"\>", "\<\"2.smer tretji\[CHacek]\"\>", "\<\"2.smer \
+\[CHacek]etrti\[CHacek]\"\>"},
+    {"\<\"Maks\"\>", "\<\"Bevk\"\>", "16.`", "24.`", "15.2`", "12.`", "17.6`",
+      "15.9`", "14.8`", "9.6`"},
+    {"\<\"Maks\"\>", "\<\"Bajda\"\>", "24.3`", "18.7`", "18.2`", "13.5`", 
+     "15.8`", "19.`", "22.1`", "14.`"},
+    {"\<\"O\[ZHacek]bej\"\>", "\<\"Stanek\"\>", "34.`", "28.8`", "32.`", 
+     "13.1`", "19.1`", "21.2`", "41.`", "30.6`"},
+    {"\<\"Maj\"\>", "\<\"Bergant\"\>", "10.`", "10.5`", "9.`", "11.6`", 
+     "10.6`", "8.2`", "12.2`", "9.2`"},
+    {"\<\"Jaka \"\>", "\<\"\[CapitalZHacek]umer\"\>", "19.`", "40.`", "29.7`",
+      "16.8`", "20.`", "20.6`", "29.2`", "15.7`"},
+    {"\<\"\[CapitalZHacek]iga\"\>", "\<\"\[CapitalCHacek]arman\"\>", "15.6`", 
+     "18.3`", "23.4`", "23.4`", "18.6`", "16.53`", "30.`", "33.5`"},
+    {"\<\"Ju\[SHacek]\"\>", "\<\"Lampe\"\>", "17.4`", "21.3`", "16.`", 
+     "21.3`", "18.6`", "16.3`", "20.`", "20.`"},
+    {"\<\"Dorjan \"\>", "\<\"Fritz\"\>", "19.`", "20.`", "28.5`", "27.7`", 
+     "13.`", "12.`", "26.5`", "17.2`"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.7557601596404943`*^9, 3.7589596404858313`*^9}]
+}, Open  ]],
+
+Cell["Oblikovala sem tabelo v Mathematici s pomo\[CHacek]jo TableForm.", \
+"Text",
+ CellChangeTimes->{{3.755783423804018*^9, 3.755783458059559*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<test.pdf\>\"", ",", " ", 
+   RowBox[{"podatki", " ", "//", " ", "TableForm"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7557602106526375`*^9, 3.755760235418047*^9}}],
+
+Cell[BoxData["\<\"test.pdf\"\>"], "Output",
+ CellChangeTimes->{3.755760237964878*^9, 3.75895964320216*^9}]
+}, Open  ]],
+
+Cell["Izvozila sem tudi urejeno testno tabelo.", "Text",
+ CellChangeTimes->{{3.7557841558303747`*^9, 3.755784178551775*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Imena", "[", "podatki_", "]"}], " ", ":=", " ", 
+  RowBox[{"podatki", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Imena", "[", "podatki", "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7557603029145145`*^9, 3.755760319156827*^9}, {
+  3.755761789457687*^9, 3.7557617914485655`*^9}, {3.755761866657502*^9, 
+  3.755761867460139*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ime\"\>", ",", "\<\"Priimek\"\>", 
+   ",", "\<\"1.smer prvi\[CHacek] \"\>", ",", "\<\"1.smer drugi\[CHacek]\"\>",
+    ",", "\<\"1.smer tretji\[CHacek]\"\>", 
+   ",", "\<\"1.smer \[CHacek]etrti\[CHacek]\"\>", 
+   ",", "\<\"2.smer prvi\[CHacek]\"\>", ",", "\<\"2.smer drugi\[CHacek] \"\>",
+    ",", "\<\"2.smer tretji\[CHacek]\"\>", 
+   ",", "\<\"2.smer \[CHacek]etrti\[CHacek]\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.7557618683787837`*^9, 3.7589596432891035`*^9}]
+}, Open  ]],
+
+Cell["\<\
+S tem ukazom sem dobila prvo vrstico oz. vrstico, ki nam pove kaj je kje \
+zapisano.\
+\>", "Text",
+ CellChangeTimes->{{3.7557841870461364`*^9, 3.755784262104839*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Podatki", "[", "podatki_", "]"}], " ", ":=", " ", 
+  RowBox[{"Rest", "[", "podatki", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Podatki", "[", "podatki", "]"}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bevk\"\>", ",", "16.`", ",", "24.`", 
+     ",", "15.2`", ",", "12.`", ",", "17.6`", ",", "15.9`", ",", "14.8`", ",",
+      "9.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bajda\"\>", ",", "24.3`", ",", "18.7`", 
+     ",", "18.2`", ",", "13.5`", ",", "15.8`", ",", "19.`", ",", "22.1`", ",",
+      "14.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"O\[ZHacek]bej\"\>", ",", "\<\"Stanek\"\>", ",", "34.`", ",", 
+     "28.8`", ",", "32.`", ",", "13.1`", ",", "19.1`", ",", "21.2`", ",", 
+     "41.`", ",", "30.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maj\"\>", ",", "\<\"Bergant\"\>", ",", "10.`", ",", "10.5`", 
+     ",", "9.`", ",", "11.6`", ",", "10.6`", ",", "8.2`", ",", "12.2`", ",", 
+     "9.2`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Jaka \"\>", ",", "\<\"\[CapitalZHacek]umer\"\>", ",", "19.`",
+      ",", "40.`", ",", "29.7`", ",", "16.8`", ",", "20.`", ",", "20.6`", ",",
+      "29.2`", ",", "15.7`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"\[CapitalZHacek]iga\"\>", 
+     ",", "\<\"\[CapitalCHacek]arman\"\>", ",", "15.6`", ",", "18.3`", ",", 
+     "23.4`", ",", "23.4`", ",", "18.6`", ",", "16.53`", ",", "30.`", ",", 
+     "33.5`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Ju\[SHacek]\"\>", ",", "\<\"Lampe\"\>", ",", "17.4`", ",", 
+     "21.3`", ",", "16.`", ",", "21.3`", ",", "18.6`", ",", "16.3`", ",", 
+     "20.`", ",", "20.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Dorjan \"\>", ",", "\<\"Fritz\"\>", ",", "19.`", ",", "20.`",
+      ",", "28.5`", ",", "27.7`", ",", "13.`", ",", "12.`", ",", "26.5`", ",",
+      "17.2`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7557618520142508`*^9, 3.758959643325082*^9}]
+}, Open  ]],
+
+Cell["\<\
+Podatki vrnejo preostal del tabele, se pravi vne\[SHacek]ene podatke otrok in \
+njihove hitrosti.\
+\>", "Text",
+ CellChangeTimes->{{3.755784289271572*^9, 3.755784317154475*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IndeksStolpca", "[", 
+   RowBox[{"podatki_", ",", " ", "stolpec_"}], "]"}], " ", ":=", 
+  StyleBox[
+   RowBox[{" ", 
+    StyleBox[" ",
+     Background->RGBColor[0.9, 1, 1]]}]], 
+  RowBox[{"If", "[", 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"Position", "[", 
+       RowBox[{
+        RowBox[{"Imena", "[", "podatki", "]"}], ",", " ", "stolpec"}], "]"}], 
+      " ", "==", " ", 
+      RowBox[{"{", "}"}]}],
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[",",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[" ",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["Null",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[",",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["  ",
+     Background->RGBColor[0.9, 1, 1]], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Position", "[", 
+       RowBox[{
+        RowBox[{"Imena", "[", "podatki", "]"}], ",", " ", "stolpec"}], "]"}], 
+      StyleBox["//",
+       Background->RGBColor[0.9, 1, 1]], 
+      StyleBox["First",
+       Background->RGBColor[0.9, 1, 1]]}], 
+     StyleBox[" ",
+      Background->RGBColor[0.9, 1, 1]], 
+     StyleBox["//",
+      Background->RGBColor[0.9, 1, 1]], 
+     StyleBox[" ",
+      Background->RGBColor[0.9, 1, 1]], "First"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.7557619223582835`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IndeksStolpca", "[", 
+  RowBox[{"podatki", ",", " ", "\"\<Ime\>\""}], "]"}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.755761943987115*^9, 3.758959643387045*^9}]
+}, Open  ]],
+
+Cell["Izvemo, v katerem stolpcu se nahajajo dolo\[CHacek]eni podatki.", "Text",
+ CellChangeTimes->{{3.755784329839099*^9, 3.7557843682385798`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IndeksStolpca", "[", 
+  RowBox[{"podatki", ",", " ", "\"\<2.smer prvi\[CHacek]\>\""}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755784372319651*^9, 3.755784403044709*^9}}],
+
+Cell[BoxData["7"], "Output",
+ CellChangeTimes->{3.7557844035396614`*^9, 3.758959643421022*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Stolpec", "[", 
+   RowBox[{"podatki_", ",", " ", "stolpec_"}], "]"}], " ", ":=", 
+  RowBox[{
+   RowBox[{
+    StyleBox["Transpose",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["[",
+     Background->RGBColor[0.9, 1, 1]], 
+    RowBox[{"Rest", "[", "podatki", "]"}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"IndeksStolpca", "[", 
+     RowBox[{"podatki", ",", " ", "stolpec"}], "]"}], "]"}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Stolpec", "[", 
+  RowBox[{"podatki", ",", " ", "\"\<Ime\>\""}], "]"}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Maks\"\>", ",", "\<\"Maks\"\>", ",", "\<\"O\[ZHacek]bej\"\>", 
+   ",", "\<\"Maj\"\>", ",", "\<\"Jaka \"\>", 
+   ",", "\<\"\[CapitalZHacek]iga\"\>", ",", "\<\"Ju\[SHacek]\"\>", 
+   ",", "\<\"Dorjan \"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.755761975018303*^9, 3.7589596434809856`*^9}]
+}, Open  ]],
+
+Cell["Vrne dolo\[CHacek]eni stolpec. (V tem primeru stolpec z imeni.)", "Text",
+ CellChangeTimes->{{3.7557844205118923`*^9, 3.755784445648301*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Stolpec", "[", 
+  RowBox[{"podatki", ",", "\"\<2.smer prvi\[CHacek]\>\""}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.755784467549569*^9, 3.7557844710222464`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "17.6`", ",", "15.8`", ",", "19.1`", ",", "10.6`", ",", "20.`", ",", 
+   "18.6`", ",", "18.6`", ",", "13.`"}], "}"}]], "Output",
+ CellChangeTimes->{3.7557844715081367`*^9, 3.7589596435119658`*^9}]
+}, Open  ]],
+
+Cell["Vrne stolpec s \[CHacek]asi preplezane druge smeri v prvem poskusu.", \
+"Text",
+ CellChangeTimes->{{3.7557844840139556`*^9, 3.7557845095909376`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"podatki", "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.758959622363997*^9, 3.758959627395892*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"{", 
+   RowBox[{
+   "\"\<Maks\>\"", ",", "\"\<Bevk\>\"", ",", "16.`", ",", "24.`", ",", 
+    "15.2`", ",", "12.`", ",", "17.6`", ",", "15.9`", ",", "14.8`", ",", 
+    "9.6`"}], "}"}], "Input"]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.758959971437128*^9}],
+
+Cell["\<\
+Dobimo celotno vrstico s podatki za dolo\[CHacek]enega vade\[CHacek]ega, v \
+tem primeru za Bevk Maksa.
+
+\
+\>", "Text",
+ CellChangeTimes->{{3.758960030831561*^9, 3.7589601040874553`*^9}, {
+  3.758960216952942*^9, 3.7589602175535717`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Casi", "[", "otrok_", "]"}], " ", ":=", " ", 
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"Delete", "[", 
+       RowBox[{
+        RowBox[{"podatki", "[", 
+         RowBox[{"[", "otrok", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+     "]"}]}], ";"}], "Code"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Casi", "[", "2", "]"}], "Code"]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.759033925370359*^9, 3.759033973673623*^9}, {
+  3.7590340301528435`*^9, 3.7590341473696623`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "16.`", ",", "24.`", ",", "15.2`", ",", "12.`", ",", "17.6`", ",", "15.9`", 
+   ",", "14.8`", ",", "9.6`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.759034148248119*^9, 3.759034158877575*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Funkcija Casi vrne \[CHacek]ase posameznega otroka za vseh 8 smeri. Npr \
+Casi[2] vrne vse \[CHacek]ase od Maksa Bevka.\
+\>", "Text",
+ CellChangeTimes->{{3.7589609749516573`*^9, 3.7589609827308693`*^9}, {
+  3.759034188191525*^9, 3.7590342287045836`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7589610285406475`*^9, 3.7589611003944173`*^9}, {
+  3.758961131536228*^9, 3.758961192185878*^9}, {3.7589710552184916`*^9, 
+  3.7589710562188888`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cas_Maks1", " ", "=", "  ", 
+  RowBox[{"Delete", "[", 
+   RowBox[{
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"podatki", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7589706448271923`*^9, 3.7589707432725763`*^9}, {
+  3.7589708028189077`*^9, 3.7589708826697407`*^9}, {3.7590338498358746`*^9, 
+  3.759033874348775*^9}, {3.7590341690403166`*^9, 3.7590341788352866`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "16.`", ",", "24.`", ",", "15.2`", ",", "12.`", ",", "17.6`", ",", "15.9`", 
+   ",", "14.8`", ",", "9.6`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7589708511721344`*^9, 3.7589708835671873`*^9}, {
+   3.7590338545379744`*^9, 3.759033875481079*^9}, 3.759034173698448*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cas_Maks2", " ", "=", " ", 
+  RowBox[{"Delete", "[", 
+   RowBox[{
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"podatki", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.758973643818816*^9, 3.7589736590354443`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "24.3`", ",", "18.7`", ",", "18.2`", ",", "13.5`", ",", "15.8`", ",", 
+   "19.`", ",", "22.1`", ",", "14.`"}], "}"}]], "Output",
+ CellChangeTimes->{3.758973661160138*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cas_Ozbej", " ", "=", " ", 
+  RowBox[{"Delete", "[", 
+   RowBox[{
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"podatki", "[", 
+       RowBox[{"[", "4", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.75897374800466*^9, 3.758973754289792*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "34.`", ",", "28.8`", ",", "32.`", ",", "13.1`", ",", "19.1`", ",", "21.2`",
+    ",", "41.`", ",", "30.6`"}], "}"}]], "Output",
+ CellChangeTimes->{3.758973756167634*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "16.`", ",", "24.`", ",", "15.2`", ",", "12.`", ",", "17.6`", ",", 
+       "15.9`", ",", "14.8`", ",", "9.6`"}], "}"}], ",", " ", 
+     "\"\<Seconds\>\""}], "]"}], ",", " ", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", "Automatic"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.758970899317489*^9, 3.7589709021247606`*^9}, 
+   3.758971020065135*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     PointBox[{{1., 16.}, {2., 24.}, {3., 15.2}, {4., 12.}, {5., 17.6}, {6., 
+      15.9}, {7., 14.8}, {8., 9.6}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, 
+    FormBox[
+     TooltipBox[
+      StyleBox["\"s\"", ShowStringCharacters -> False], "seconds"], 
+     TraditionalForm]},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {0, 24.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.758970903187106*^9, 3.758971020586816*^9}]
+}, Open  ]],
+
+Cell["\<\
+Dobili smo graf s hitrostmi Maksovih (Bevk) preplezanih smeri.\
+\>", "Text",
+ CellChangeTimes->{{3.7589710655311384`*^9, 3.7589711052396884`*^9}, {
+  3.7589711677222157`*^9, 3.758971211382622*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"Delete", "[", 
+      RowBox[{
+       RowBox[{"Delete", "[", 
+        RowBox[{
+         RowBox[{"podatki", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+      "]"}], ",", " ", "\"\<Seconds\>\""}], "]"}], ",", " ", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", "Automatic"}], ",", " ", 
+   RowBox[{"PlotStyle", " ", "\[Rule]", " ", "Brown"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7589711227389145`*^9, 3.7589711300534124`*^9}, {
+  3.7589731675680747`*^9, 3.7589731739541426`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.6, 0.4, 0.2], PointSize[0.012833333333333334`], 
+     AbsoluteThickness[1.6], 
+     PointBox[{{1., 24.3}, {2., 18.7}, {3., 18.2}, {4., 13.5}, {5., 15.8}, {
+      6., 19.}, {7., 22.1}, {8., 14.}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, 
+    FormBox[
+     TooltipBox[
+      StyleBox["\"s\"", ShowStringCharacters -> False], "seconds"], 
+     TraditionalForm]},
+  AxesOrigin->{0., 12.96},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {13.5, 24.3}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.758971126764436*^9, 3.7589711303902006`*^9}, 
+   3.758973174978512*^9}]
+}, Open  ]],
+
+Cell["\<\
+Dobili smo graf s hitrostmi Maksovih (Bajda) preplezanih smeri.\
+\>", "Text",
+ CellChangeTimes->{{3.758971199830736*^9, 3.7589712086802855`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"Delete", "[", 
+      RowBox[{
+       RowBox[{"Delete", "[", 
+        RowBox[{
+         RowBox[{"podatki", "[", 
+          RowBox[{"[", "4", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+      "]"}], ",", " ", "\"\<Seconds\>\""}], "]"}], ",", " ", 
+   RowBox[{"AxesLabel", " ", "\[Rule]", " ", "Automatic"}], ",", " ", 
+   RowBox[{"PlotStyle", " ", "\[Rule]", " ", "Green"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7589711460825405`*^9, 3.7589711466881647`*^9}, {
+  3.7589728048694143`*^9, 3.758972867881611*^9}, {3.75897299207014*^9, 
+  3.7589730391611423`*^9}, {3.75897309191366*^9, 3.758973158952382*^9}, {
+  3.7589736015418468`*^9, 3.758973605808237*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0, 1, 0], PointSize[0.012833333333333334`], AbsoluteThickness[
+     1.6], PointBox[{{1., 34.}, {2., 28.8}, {3., 32.}, {4., 13.1}, {5., 
+      19.1}, {6., 21.2}, {7., 41.}, {8., 30.6}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, 
+    FormBox[
+     TooltipBox[
+      StyleBox["\"s\"", ShowStringCharacters -> False], "seconds"], 
+     TraditionalForm]},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {0, 41.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7589730396388483`*^9, {3.7589730967186995`*^9, 3.758973102396203*^9}, {
+   3.758973135150036*^9, 3.7589731595360193`*^9}}]
+}, Open  ]],
+
+Cell["Dobili smo graf s hitrostmi O\[ZHacek]bejevih preplezanih smeri.", \
+"Text",
+ CellChangeTimes->{{3.758971238719787*^9, 3.7589712532868195`*^9}}],
+
+Cell["\<\
+Enako bi lahko naredili \[SHacek]e za ostale. Iz grafa je razvidno (prve 4. \
+oznake), kak\[SHacek]ni so bili \[CHacek]asi pri plezanju prve smeri in (od \
+5-8.oznake) \[CHacek]asi pri plezanju druge smeri.
+Iz grafa lahko razberemo, V katerem poiskusu jim je \[SHacek]lo najbolj\
+\[SHacek]e in v katerem poiskusu so porabili najve\[CHacek] \[CHacek]asa. Iz \
+tega lahko razberemo, kako na njih vpliva utrujenost ter poznavanje terena.\
+\>", "Text",
+ CellChangeTimes->{{3.758971282554797*^9, 3.758971417503699*^9}, {
+  3.758971457707945*^9, 3.7589714984848347`*^9}, {3.7589732746001673`*^9, 
+  3.758973275537589*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "16.`", ",", "24.`", ",", "15.2`", ",", "12.`", ",", "17.6`", ",", 
+       "15.9`", ",", "14.8`", ",", "9.6`"}], "}"}], " ", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "24.3`", ",", "18.7`", ",", "18.2`", ",", "13.5`", ",", "15.8`", ",", 
+       "19.`", ",", "22.1`", ",", "14.`"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "34.`", ",", "28.8`", ",", "32.`", ",", "13.1`", ",", "19.1`", ",", 
+       "21.2`", ",", "41.`", ",", "30.6`"}], "}"}]}], "}"}], ",", " ", 
+   RowBox[{"PlotMarkers", " ", "\[Rule]", " ", "Automatic"}]}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.758973282447334*^9, 3.75897347749723*^9}, {
+  3.75897362895097*^9, 3.7589736317812266`*^9}, {3.758973669062271*^9, 
+  3.7589736737503843`*^9}, {3.7589737088127956`*^9, 3.7589737261071615`*^9}, {
+  3.758973767962375*^9, 3.7589737685350223`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledCircle]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 16.}}, {{2., 24.}}, {{3., 
+      15.2}}, {{4., 12.}}, {{5., 17.6}}, {{6., 15.9}}, {{7., 14.8}}, {{8., 
+      9.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledSquare]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 24.3}}, {{2., 18.7}}, {{3., 
+      18.2}}, {{4., 13.5}}, {{5., 15.8}}, {{6., 19.}}, {{7., 22.1}}, {{8., 
+      14.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.88], {0., 0.}], {{{1., 34.}}, {{2., 28.8}}, {{3., 
+      32.}}, {{4., 13.1}}, {{5., 19.1}}, {{6., 21.2}}, {{7., 41.}}, {{8., 
+      30.6}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {0, 41.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.758973674519912*^9, 3.7589737295670137`*^9, 
+  3.7589737707866344`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Tukaj so prikazani \[CHacek]asi preplezanih smeri za Maksa Bevka, Maksa Bajdo \
+in O\[ZHacek]beja.
+Vidimo lahko, da so se pri prvi smeri vsi najbolj potrudili v \[CHacek]etrtem \
+- zadnjem poiskusu. Medtem ko so bili pri drugi smeri nekateri \[ZHacek]e \
+utrujeni, in so posledi\[CHacek]ni dosegli bolj\[SHacek]i \[CHacek]as v prvem \
+poiskusu druge smeri.
+Iz grafa je tudi razvidno, da je imel najbolj\[SHacek]e \[CHacek]ase Maks \
+Bevk, ki trenira najdlje izmed cele skupine.\[LineSeparator]Prav tako je \
+razvidno, da hitrost dela najve\[CHacek] problemov O\[ZHacek]beju, ki je za\
+\[CHacek]el trenirat \[SHacek]ele s tem \[SHacek]olskim letom.\
+\>", "Text",
+ CellChangeTimes->{{3.758973779450298*^9, 3.7589739871374283`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Casi", "[", "2", "]"}], ",", 
+     RowBox[{"Casi", "[", "3", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "4", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "5", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "6", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "7", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "8", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "9", "]"}]}], " ", "}"}], ",", " ", 
+   RowBox[{"PlotMarkers", " ", "\[Rule]", " ", "Automatic"}]}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7590342505471287`*^9, 3.759034316392589*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledCircle]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 16.}}, {{2., 24.}}, {{3., 
+      15.2}}, {{4., 12.}}, {{5., 17.6}}, {{6., 15.9}}, {{7., 14.8}}, {{8., 
+      9.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledSquare]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 24.3}}, {{2., 18.7}}, {{3., 
+      18.2}}, {{4., 13.5}}, {{5., 15.8}}, {{6., 19.}}, {{7., 22.1}}, {{8., 
+      14.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.88], {0., 0.}], {{{1., 34.}}, {{2., 28.8}}, {{3., 
+      32.}}, {{4., 13.1}}, {{5., 19.1}}, {{6., 21.2}}, {{7., 41.}}, {{8., 
+      30.6}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledUpTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 10.}}, {{2., 10.5}}, {{3., 
+      9.}}, {{4., 11.6}}, {{5., 10.6}}, {{6., 8.2}}, {{7., 12.2}}, {{8., 
+      9.2}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDownTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 40.}}, {{3., 
+      29.7}}, {{4., 16.8}}, {{5., 20.}}, {{6., 20.6}}, {{7., 29.2}}, {{8., 
+      15.7}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyCircle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 15.6}}, {{2., 18.3}}, {{3., 
+      23.4}}, {{4., 23.4}}, {{5., 18.6}}, {{6., 16.53}}, {{7., 30.}}, {{8., 
+      33.5}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptySquare]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 17.4}}, {{2., 21.3}}, {{3., 
+      16.}}, {{4., 21.3}}, {{5., 18.6}}, {{6., 16.3}}, {{7., 20.}}, {{8., 
+      20.}}}]}, 
+    {RGBColor[1, 0.75, 0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+     GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 20.}}, {{3., 
+      28.5}}, {{4., 27.7}}, {{5., 13.}}, {{6., 12.}}, {{7., 26.5}}, {{8., 
+      17.2}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {0, 41.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.7590343325836115`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Na zgornji graf sem vnesla \[CHacek]ase vseh smeri za vse tekmovalce.\
+\>", "Text",
+ CellChangeTimes->{{3.7590357341022162`*^9, 3.759035752793713*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"%105", ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"HoldForm", "[", 
+       RowBox[{"zaporedni", " ", "poiskus"}], "]"}], ",", 
+      RowBox[{"HoldForm", "[", "\[CHacek]as", "]"}]}], "}"}]}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "None"}], ",", 
+   RowBox[{"LabelStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"GrayLevel", "[", "0", "]"}], "}"}]}]}], "]"}]], "Input",
+ InitializationCell->True,
+ NumberMarks->False],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledCircle]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 16.}}, {{2., 24.}}, {{3., 
+      15.2}}, {{4., 12.}}, {{5., 17.6}}, {{6., 15.9}}, {{7., 14.8}}, {{8., 
+      9.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledSquare]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 24.3}}, {{2., 18.7}}, {{3., 
+      18.2}}, {{4., 13.5}}, {{5., 15.8}}, {{6., 19.}}, {{7., 22.1}}, {{8., 
+      14.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.88], {0., 0.}], {{{1., 34.}}, {{2., 28.8}}, {{3., 
+      32.}}, {{4., 13.1}}, {{5., 19.1}}, {{6., 21.2}}, {{7., 41.}}, {{8., 
+      30.6}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledUpTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 10.}}, {{2., 10.5}}, {{3., 
+      9.}}, {{4., 11.6}}, {{5., 10.6}}, {{6., 8.2}}, {{7., 12.2}}, {{8., 
+      9.2}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDownTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 40.}}, {{3., 
+      29.7}}, {{4., 16.8}}, {{5., 20.}}, {{6., 20.6}}, {{7., 29.2}}, {{8., 
+      15.7}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyCircle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 15.6}}, {{2., 18.3}}, {{3., 
+      23.4}}, {{4., 23.4}}, {{5., 18.6}}, {{6., 16.53}}, {{7., 30.}}, {{8., 
+      33.5}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptySquare]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 17.4}}, {{2., 21.3}}, {{3., 
+      16.}}, {{4., 21.3}}, {{5., 18.6}}, {{6., 16.3}}, {{7., 20.}}, {{8., 
+      20.}}}]}, 
+    {RGBColor[1, 0.75, 0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+     GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 20.}}, {{3., 
+      28.5}}, {{4., 27.7}}, {{5., 13.}}, {{6., 12.}}, {{7., 26.5}}, {{8., 
+      17.2}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox[
+     TagBox[
+      RowBox[{"zaporedni", " ", "poiskus"}], HoldForm], TraditionalForm], 
+    FormBox[
+     TagBox["\[CHacek]as", HoldForm], TraditionalForm]},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  LabelStyle->{
+    GrayLevel[0]},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->None,
+  PlotRange->{{0., 8.}, {0, 41.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.759034520962618*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"%106", ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ NumberMarks->False],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledCircle]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 16.}}, {{2., 24.}}, {{3., 
+      15.2}}, {{4., 12.}}, {{5., 17.6}}, {{6., 15.9}}, {{7., 14.8}}, {{8., 
+      9.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledSquare]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 24.3}}, {{2., 18.7}}, {{3., 
+      18.2}}, {{4., 13.5}}, {{5., 15.8}}, {{6., 19.}}, {{7., 22.1}}, {{8., 
+      14.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.88], {0., 0.}], {{{1., 34.}}, {{2., 28.8}}, {{3., 
+      32.}}, {{4., 13.1}}, {{5., 19.1}}, {{6., 21.2}}, {{7., 41.}}, {{8., 
+      30.6}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledUpTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 10.}}, {{2., 10.5}}, {{3., 
+      9.}}, {{4., 11.6}}, {{5., 10.6}}, {{6., 8.2}}, {{7., 12.2}}, {{8., 
+      9.2}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDownTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 40.}}, {{3., 
+      29.7}}, {{4., 16.8}}, {{5., 20.}}, {{6., 20.6}}, {{7., 29.2}}, {{8., 
+      15.7}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyCircle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 15.6}}, {{2., 18.3}}, {{3., 
+      23.4}}, {{4., 23.4}}, {{5., 18.6}}, {{6., 16.53}}, {{7., 30.}}, {{8., 
+      33.5}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptySquare]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 17.4}}, {{2., 21.3}}, {{3., 
+      16.}}, {{4., 21.3}}, {{5., 18.6}}, {{6., 16.3}}, {{7., 20.}}, {{8., 
+      20.}}}]}, 
+    {RGBColor[1, 0.75, 0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+     GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 19.}}, {{2., 20.}}, {{3., 
+      28.5}}, {{4., 27.7}}, {{5., 13.}}, {{6., 12.}}, {{7., 26.5}}, {{8., 
+      17.2}}}]}, {}}, InsetBox[
+    StyleBox[Cell["Maj Bergant",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[0.922526, 0.385626, 0.209179],
+     Background->GrayLevel[1.]], {1.0493245927997092, 9.524501225056447}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.1372409680010969, 33.79244157490725}, {Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Maks Bajda",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->8.96,
+     FontColor->RGBColor[0.880722, 0.611041, 0.142051],
+     Background->GrayLevel[1.]], {1.084804715458895, 23.996668497399035}, {
+    Left, Baseline}, {0.5977732789811052, 1.2567806116985525}, {{1., 0.}, {0.,
+     1.}},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["\[CapitalZHacek]iga \[CapitalCHacek]arman",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[0.772079, 0.431554, 0.102387],
+     Background->GrayLevel[1.]], {1.0741305808799275, 14.306842431847237}, {
+    Left, Baseline}, {0.6502095315233074, 0.9874704806202913}, {{1., 0.}, {0.,
+     1.}},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Dorjan Fritz",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[1, 0.75, 0],
+     Background->GrayLevel[1.]], {1.0951050818968078, 20.320542445450435}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["O\[ZHacek]bej Stanek",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.88,
+     FontColor->RGBColor[0.560181, 0.691569, 0.194885],
+     Background->GrayLevel[1.]], {1.068419745449389, 33.45327103211199}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Ju\[SHacek] Lampe",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[0.363898, 0.618501, 0.782349],
+     Background->GrayLevel[1.]], {1.054038588179207, 17.202407919662704}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.0435513376707664, 20.613669579987345}, {Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.0330640871623258, 18.908038749825025}, {Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {0.9596533336032428, 19.26711892459604}, {Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.9978911339388468, 40.27330914870041}, {Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {0.8547808285188384, 20.97274975475836}, {Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.0645258386876475, 18.818268706132265}, {Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["",
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[1, 0.75, 0],
+     Background->GrayLevel[1.]], {1.253296347839575, 18.728498662439513}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], 
+   InsetBox["", {1.1169620912298495, 18.818268706132265}, {Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Jaka \[CapitalZHacek]umer",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->10.24,
+     FontColor->RGBColor[0.528488, 0.470624, 0.701351],
+     Background->GrayLevel[1.]], {1.075013089196088, 18.908038749825025}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Maks Bevk",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     TextAlignment->Center,
+     FontSize->8.96,
+     FontColor->RGBColor[0.368417, 0.506779, 0.709798],
+     Background->GrayLevel[1.]], {1.106474840721409, 15.855857264271393}, {
+    Left, Baseline},
+    Alignment->{Left, Top}]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{
+    FormBox[
+     TagBox[
+      RowBox[{"zaporedni", " ", "poiskus"}], HoldForm], TraditionalForm], 
+    FormBox[
+     TagBox["\[CHacek]as", HoldForm], TraditionalForm]},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->{{5.091837, 92.166667}, {10.415763, 18.5}},
+  ImageSize->{819.6363636363637, Automatic},
+  LabelStyle->{
+    GrayLevel[0]},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->None,
+  PlotRange->{{-0.16666666666666669`, 
+   8.166666666666666}, {-0.8817204301075269, 43.204301075268816`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->Automatic,
+  Ticks->{Automatic, Automatic}]], "Input",
+ CellChangeTimes->{{3.759034708499136*^9, 3.759034714703317*^9}, {
+  3.759034829717495*^9, 3.7590349470042734`*^9}, {3.759034990946215*^9, 
+  3.7590350278854694`*^9}, {3.759035137075236*^9, 3.759035162406638*^9}, {
+  3.759035221788076*^9, 3.759035246822658*^9}, {3.7590352839717836`*^9, 
+  3.759035396873262*^9}, {3.7590354271616106`*^9, 3.7590355548090105`*^9}}],
+
+Cell["\<\
+Na tem grafu so prikazani \[CHacek]asi vseh tekmovalcev za posami\[CHacek]en \
+poiskus plezanja smeri. Vidimo, da je imel najbolj\[SHacek]e \[CHacek]ase \
+otrok z oran\[ZHacek]nimi trikotniki - Maj Bergant. \[LineSeparator]Iz grafa \
+lahko vidimo, v katerem poiskusu so se najbolj potrudili, pri prvi smeri je \
+padel rekord v drugem poiskusu - Maj, na splo\[SHacek]no pa je bila najbolj\
+\[SHacek]e preplezana v \[CHacek]etrtem poiskusu.\[LineSeparator]Med tem ko \
+je pri drugi smeri prav tako Maj podrel rekord v drugem poiskusu, smer pa je \
+bila v povpre\[CHacek]ju najbolj\[SHacek]e preplezana v prvem poiskusu. Tukaj \
+je velik faktor tudi utrujenost, saj smo smeri plezali na koncu treninga, in \
+se pri drugi smeri \[ZHacek]e mo\[CHacek]no pozna vpad energije.\
+\>", "Text",
+ CellChangeTimes->{{3.7590343913274455`*^9, 3.759034465615702*^9}, {
+  3.7590357857694087`*^9, 3.759035984924776*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Casi", "[", "2", "]"}], ",", 
+     RowBox[{"Casi", "[", "3", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "4", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "5", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "6", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "7", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "8", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "9", "]"}]}], " ", "}"}], ",", " ", 
+   RowBox[{"PlotMarkers", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Maks Bevk\>\"", ",", "\"\<Maks Bajda\>\"", ",", 
+      "\"\<O\[ZHacek]bej\>\"", ",", "\"\<Maj\>\"", ",", "\"\<Jaka \>\"", ",", 
+      "\"\<\[CapitalZHacek]iga\>\"", ",", "\"\<Ju\[SHacek]\>\"", ",", 
+      "\"\<Dorjan\>\""}], " ", "}"}]}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.759070089833778*^9, 3.7590701117522807`*^9}, {
+  3.759070154894721*^9, 3.759070164425849*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox[
+        RowBox[{"Maks", " ", "Bevk"}], {0., 0.}],
+       "InsetString"], {{{1., 16.}}, {{2., 24.}}, {{3., 15.2}}, {{4., 
+      12.}}, {{5., 17.6}}, {{6., 15.9}}, {{7., 14.8}}, {{8., 9.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox[
+        RowBox[{"Maks", " ", "Bajda"}], {0., 0.}],
+       "InsetString"], {{{1., 24.3}}, {{2., 18.7}}, {{3., 18.2}}, {{4., 
+      13.5}}, {{5., 15.8}}, {{6., 19.}}, {{7., 22.1}}, {{8., 14.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["O\[ZHacek]bej", {0., 0.}],
+       "InsetString"], {{{1., 34.}}, {{2., 28.8}}, {{3., 32.}}, {{4., 
+      13.1}}, {{5., 19.1}}, {{6., 21.2}}, {{7., 41.}}, {{8., 30.6}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Maj", {0., 0.}],
+       "InsetString"], {{{1., 10.}}, {{2., 10.5}}, {{3., 9.}}, {{4., 
+      11.6}}, {{5., 10.6}}, {{6., 8.2}}, {{7., 12.2}}, {{8., 9.2}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox[
+        RowBox[{"Jaka", " "}], {0., 0.}],
+       "InsetString"], {{{1., 19.}}, {{2., 40.}}, {{3., 29.7}}, {{4., 
+      16.8}}, {{5., 20.}}, {{6., 20.6}}, {{7., 29.2}}, {{8., 15.7}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["\[CapitalZHacek]iga", {0., 0.}],
+       "InsetString"], {{{1., 15.6}}, {{2., 18.3}}, {{3., 23.4}}, {{4., 
+      23.4}}, {{5., 18.6}}, {{6., 16.53}}, {{7., 30.}}, {{8., 33.5}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Ju\[SHacek]", {0., 0.}],
+       "InsetString"], {{{1., 17.4}}, {{2., 21.3}}, {{3., 16.}}, {{4., 
+      21.3}}, {{5., 18.6}}, {{6., 16.3}}, {{7., 20.}}, {{8., 20.}}}]}, 
+    {RGBColor[1, 0.75, 0], AbsolutePointSize[6], AbsoluteThickness[1.6], 
+     GeometricTransformationBox[
+      TagBox[InsetBox["Dorjan", {0., 0.}],
+       "InsetString"], {{{1., 19.}}, {{2., 20.}}, {{3., 28.5}}, {{4., 
+      27.7}}, {{5., 13.}}, {{6., 12.}}, {{7., 26.5}}, {{8., 
+      17.2}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->{945.4545454545446, Automatic},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 8.}, {0, 41.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.759070164995496*^9}]
+}, Open  ]],
+
+Cell["\<\
+
+
+Naslednje meritve smo imeli 11.01.2019. Tokrat smo prav tako plezali dve \
+smeri, ampak vsako samo trikrat. Podatke sem vnesla v excel preglednico \
+hitrosti2, in jih uvozila v Mathematico. 
+\
+\>", "Text",
+ CellChangeTimes->{{3.759070577043771*^9, 3.7590707583421383`*^9}, 
+   3.7590823216646504`*^9, {3.759082784559614*^9, 3.759082908079558*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"podatki2", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"Import", "[", "\"\<hitrost2.xlsx\>\"", "]"}], " ", "//", " ", 
+   "First"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7590822743168077`*^9, 3.759082301404129*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Ime\"\>", ",", "\<\"Priimek\"\>", 
+     ",", "\<\"1.smer prvi\[CHacek] \"\>", 
+     ",", "\<\"1.smer drugi\[CHacek]\"\>", 
+     ",", "\<\"1.smer tretji\[CHacek]\"\>", 
+     ",", "\<\"2.smer prvi\[CHacek] \"\>", 
+     ",", "\<\"2.smer drugi\[CHacek]\"\>", 
+     ",", "\<\"2.smer tretji\[CHacek]\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bevk\"\>", ",", "17.`", ",", "12.3`", 
+     ",", "3.7`", ",", "21.8`", ",", "14.`", ",", "7.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"O\[ZHacek]bej\"\>", ",", "\<\"Stanek\"\>", ",", "20.`", ",", 
+     "16.3`", ",", "4.5`", ",", "32.`", ",", "13.7`", ",", "8.`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maj\"\>", ",", "\<\"Bergant\"\>", ",", "19.5`", ",", "10.`", 
+     ",", "3.8`", ",", "20.4`", ",", "6.9`", ",", "8.1`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Jaka \"\>", ",", "\<\"\[CapitalZHacek]umer\"\>", ",", "14.`",
+      ",", "10.3`", ",", "6.3`", ",", "15.5`", ",", "1.8`", ",", "7.1`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"\[CapitalZHacek]iga\"\>", 
+     ",", "\<\"\[CapitalCHacek]arman\"\>", ",", "30.`", ",", "19.3`", ",", 
+     "6.3`", ",", "22.`", ",", "13.2`", ",", "7.8`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Ju\[SHacek]\"\>", ",", "\<\"Lampe\"\>", ",", "11.9`", ",", 
+     "11.3`", ",", "7.8`", ",", "12.4`", ",", "15.4`", ",", "14.3`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Dorjan \"\>", ",", "\<\"Fritz\"\>", ",", "28.5`", ",", 
+     "27.7`", ",", "8.6`", ",", "26.5`", ",", "17.2`", ",", "8.`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.759082259696802*^9, 3.7590823018308573`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", "podatki2", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7590822623241863`*^9, 3.7590822780315137`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Ime\"\>", "\<\"Priimek\"\>", "\<\"1.smer prvi\[CHacek] \"\>", \
+"\<\"1.smer drugi\[CHacek]\"\>", "\<\"1.smer tretji\[CHacek]\"\>", \
+"\<\"2.smer prvi\[CHacek] \"\>", "\<\"2.smer drugi\[CHacek]\"\>", "\<\"2.smer \
+tretji\[CHacek]\"\>"},
+    {"\<\"Maks\"\>", "\<\"Bevk\"\>", "17.`", "12.3`", "3.7`", "21.8`", "14.`",
+      "7.6`"},
+    {"\<\"O\[ZHacek]bej\"\>", "\<\"Stanek\"\>", "20.`", "16.3`", "4.5`", 
+     "32.`", "13.7`", "8.`"},
+    {"\<\"Maj\"\>", "\<\"Bergant\"\>", "19.5`", "10.`", "3.8`", "20.4`", 
+     "6.9`", "8.1`"},
+    {"\<\"Jaka \"\>", "\<\"\[CapitalZHacek]umer\"\>", "14.`", "10.3`", "6.3`",
+      "15.5`", "1.8`", "7.1`"},
+    {"\<\"\[CapitalZHacek]iga\"\>", "\<\"\[CapitalCHacek]arman\"\>", "30.`", 
+     "19.3`", "6.3`", "22.`", "13.2`", "7.8`"},
+    {"\<\"Ju\[SHacek]\"\>", "\<\"Lampe\"\>", "11.9`", "11.3`", "7.8`", 
+     "12.4`", "15.4`", "14.3`"},
+    {"\<\"Dorjan \"\>", "\<\"Fritz\"\>", "28.5`", "27.7`", "8.6`", "26.5`", 
+     "17.2`", "8.`"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.7590822784482546`*^9, 3.75908230579342*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Imena", "[", "podatki2_", "]"}], " ", ":=", " ", 
+  RowBox[{"podatki2", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Imena", "[", "podatki2", "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.75908240841523*^9, 3.759082442466263*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ime\"\>", ",", "\<\"Priimek\"\>", 
+   ",", "\<\"1.smer prvi\[CHacek] \"\>", ",", "\<\"1.smer drugi\[CHacek]\"\>",
+    ",", "\<\"1.smer tretji\[CHacek]\"\>", 
+   ",", "\<\"2.smer prvi\[CHacek] \"\>", ",", "\<\"2.smer drugi\[CHacek]\"\>",
+    ",", "\<\"2.smer tretji\[CHacek]\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.7590824428110476`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Podatki", "[", "podatki2_", "]"}], " ", ":=", " ", 
+  RowBox[{"Rest", "[", "podatki2", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Podatki", "[", "podatki2", "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7590824678326445`*^9, 3.7590824756388407`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Maks\"\>", ",", "\<\"Bevk\"\>", ",", "17.`", ",", "12.3`", 
+     ",", "3.7`", ",", "21.8`", ",", "14.`", ",", "7.6`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"O\[ZHacek]bej\"\>", ",", "\<\"Stanek\"\>", ",", "20.`", ",", 
+     "16.3`", ",", "4.5`", ",", "32.`", ",", "13.7`", ",", "8.`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Maj\"\>", ",", "\<\"Bergant\"\>", ",", "19.5`", ",", "10.`", 
+     ",", "3.8`", ",", "20.4`", ",", "6.9`", ",", "8.1`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Jaka \"\>", ",", "\<\"\[CapitalZHacek]umer\"\>", ",", "14.`",
+      ",", "10.3`", ",", "6.3`", ",", "15.5`", ",", "1.8`", ",", "7.1`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"\[CapitalZHacek]iga\"\>", 
+     ",", "\<\"\[CapitalCHacek]arman\"\>", ",", "30.`", ",", "19.3`", ",", 
+     "6.3`", ",", "22.`", ",", "13.2`", ",", "7.8`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Ju\[SHacek]\"\>", ",", "\<\"Lampe\"\>", ",", "11.9`", ",", 
+     "11.3`", ",", "7.8`", ",", "12.4`", ",", "15.4`", ",", "14.3`"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Dorjan \"\>", ",", "\<\"Fritz\"\>", ",", "28.5`", ",", 
+     "27.7`", ",", "8.6`", ",", "26.5`", ",", "17.2`", ",", "8.`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.759082475930654*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IndeksStolpca", "[", 
+   RowBox[{"podatki2_", ",", " ", "stolpec2_"}], "]"}], " ", ":=", 
+  StyleBox[
+   RowBox[{" ", 
+    StyleBox[" ",
+     Background->RGBColor[0.9, 1, 1]]}]], 
+  RowBox[{"If", "[", 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"Position", "[", 
+       RowBox[{
+        RowBox[{"Imena", "[", "podatki2", "]"}], ",", " ", "stolpec2"}], 
+       "]"}], " ", "==", " ", 
+      RowBox[{"{", "}"}]}],
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[",",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[" ",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["Null",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox[",",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["  ",
+     Background->RGBColor[0.9, 1, 1]], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Position", "[", 
+       RowBox[{
+        RowBox[{"Imena", "[", "podatki2", "]"}], ",", " ", "stolpec2"}], 
+       "]"}], 
+      StyleBox["//",
+       Background->RGBColor[0.9, 1, 1]], 
+      StyleBox["First",
+       Background->RGBColor[0.9, 1, 1]]}], 
+     StyleBox[" ",
+      Background->RGBColor[0.9, 1, 1]], 
+     StyleBox["//",
+      Background->RGBColor[0.9, 1, 1]], 
+     StyleBox[" ",
+      Background->RGBColor[0.9, 1, 1]], "First"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7590825093120985`*^9, 3.759082516251832*^9}, {
+  3.7590826289784126`*^9, 3.7590826360090876`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Stolpec", "[", 
+   RowBox[{"podatki2_", ",", " ", "stolpec2_"}], "]"}], " ", ":=", 
+  RowBox[{
+   RowBox[{
+    StyleBox["Transpose",
+     Background->RGBColor[0.9, 1, 1]], 
+    StyleBox["[",
+     Background->RGBColor[0.9, 1, 1]], 
+    RowBox[{"Rest", "[", "podatki2", "]"}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{"IndeksStolpca", "[", 
+     RowBox[{"podatki2", ",", " ", "stolpec2"}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.759082545093073*^9, 3.759082553384967*^9}, {
+  3.759082642811898*^9, 3.759082649212957*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"Casi", "[", "otrok2_", "]"}], " ", ":=", " ", 
+    RowBox[{"Delete", "[", 
+     RowBox[{
+      RowBox[{"Delete", "[", 
+       RowBox[{
+        RowBox[{"podatki2", "[", 
+         RowBox[{"[", "otrok2", "]"}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+     "]"}]}], ";"}], "Code"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Casi", "[", "2", "]"}], "Code"]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.759082683919587*^9, 3.759082711042883*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "17.`", ",", "12.3`", ",", "3.7`", ",", "21.8`", ",", "14.`", ",", "7.6`"}],
+   "}"}]], "Output",
+ CellChangeTimes->{
+  3.75908258274688*^9, {3.759082655750926*^9, 3.7590826581194673`*^9}, {
+   3.759082688854542*^9, 3.759082711474614*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Casi", "[", "2", "]"}], ",", 
+     RowBox[{"Casi", "[", "3", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "4", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "5", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "6", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "7", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "8", "]"}]}], "}"}], ",", " ", 
+   RowBox[{"PlotMarkers", " ", "\[Rule]", " ", "Automatic"}]}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.7590827602395926`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledCircle]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 17.}}, {{2., 12.3}}, {{3., 
+      3.7}}, {{4., 21.8}}, {{5., 14.}}, {{6., 7.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledSquare]\"\>",
+        StripOnInput->False,
+        FontSize->8.96], {0., 0.}], {{{1., 20.}}, {{2., 16.3}}, {{3., 
+      4.5}}, {{4., 32.}}, {{5., 13.7}}, {{6., 8.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDiamond]\"\>",
+        StripOnInput->False,
+        FontSize->10.88], {0., 0.}], {{{1., 19.5}}, {{2., 10.}}, {{3., 
+      3.8}}, {{4., 20.4}}, {{5., 6.9}}, {{6., 8.1}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledUpTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 14.}}, {{2., 10.3}}, {{3., 
+      6.3}}, {{4., 15.5}}, {{5., 1.8}}, {{6., 7.1}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[FilledDownTriangle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 30.}}, {{2., 19.3}}, {{3., 
+      6.3}}, {{4., 22.}}, {{5., 13.2}}, {{6., 7.8}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptyCircle]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 11.9}}, {{2., 11.3}}, {{3., 
+      7.8}}, {{4., 12.4}}, {{5., 15.4}}, {{6., 14.3}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[InsetBox[
+       StyleBox["\<\"\[EmptySquare]\"\>",
+        StripOnInput->False,
+        FontSize->10.24], {0., 0.}], {{{1., 28.5}}, {{2., 27.7}}, {{3., 
+      8.6}}, {{4., 26.5}}, {{5., 17.2}}, {{6., 8.}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 6.}, {0, 32.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7590827517158346`*^9, 3.7590827622323647`*^9}}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.7590827886820745`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Casi", "[", "2", "]"}], ",", 
+     RowBox[{"Casi", "[", "3", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "4", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "5", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "6", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "7", "]"}], ",", " ", 
+     RowBox[{"Casi", "[", "8", "]"}]}], " ", "}"}], ",", " ", 
+   RowBox[{"PlotMarkers", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Maj\>\"", ",", "\"\<Maks\>\"", ",", "\"\<O\[ZHacek]bej\>\"", ",", 
+      "\"\<\[CapitalZHacek]iga\>\"", ",", "\"\<Jaka \>\"", ",", 
+      "\"\<Dorjan\>\"", ",", "\"\<Ju\[SHacek]\>\""}], " ", "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7590829365090485`*^9, 3.7590829649105635`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {
+    {RGBColor[0.368417, 0.506779, 0.709798], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Maj", {0., 0.}],
+       "InsetString"], {{{1., 17.}}, {{2., 12.3}}, {{3., 3.7}}, {{4., 
+      21.8}}, {{5., 14.}}, {{6., 7.6}}}]}, 
+    {RGBColor[0.880722, 0.611041, 0.142051], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Maks", {0., 0.}],
+       "InsetString"], {{{1., 20.}}, {{2., 16.3}}, {{3., 4.5}}, {{4., 
+      32.}}, {{5., 13.7}}, {{6., 8.}}}]}, 
+    {RGBColor[0.560181, 0.691569, 0.194885], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["O\[ZHacek]bej", {0., 0.}],
+       "InsetString"], {{{1., 19.5}}, {{2., 10.}}, {{3., 3.8}}, {{4., 
+      20.4}}, {{5., 6.9}}, {{6., 8.1}}}]}, 
+    {RGBColor[0.922526, 0.385626, 0.209179], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["\[CapitalZHacek]iga", {0., 0.}],
+       "InsetString"], {{{1., 14.}}, {{2., 10.3}}, {{3., 6.3}}, {{4., 
+      15.5}}, {{5., 1.8}}, {{6., 7.1}}}]}, 
+    {RGBColor[0.528488, 0.470624, 0.701351], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox[
+        RowBox[{"Jaka", " "}], {0., 0.}],
+       "InsetString"], {{{1., 30.}}, {{2., 19.3}}, {{3., 6.3}}, {{4., 
+      22.}}, {{5., 13.2}}, {{6., 7.8}}}]}, 
+    {RGBColor[0.772079, 0.431554, 0.102387], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Dorjan", {0., 0.}],
+       "InsetString"], {{{1., 11.9}}, {{2., 11.3}}, {{3., 7.8}}, {{4., 
+      12.4}}, {{5., 15.4}}, {{6., 14.3}}}]}, 
+    {RGBColor[0.363898, 0.618501, 0.782349], AbsolutePointSize[6], 
+     AbsoluteThickness[1.6], GeometricTransformationBox[
+      TagBox[InsetBox["Ju\[SHacek]", {0., 0.}],
+       "InsetString"], {{{1., 28.5}}, {{2., 27.7}}, {{3., 8.6}}, {{4., 
+      26.5}}, {{5., 17.2}}, {{6., 8.}}}]}, {}}, {}, {}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->{809.0909090909105, Automatic},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 1, 2][#]& )[
+         Part[#, 1]], 
+        (Part[{{Identity, Identity}, {Identity, Identity}}, 2, 2][#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 6.}, {0, 32.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{3.759082966775411*^9}]
+}, Open  ]],
+
+Cell["\<\
+\[CapitalCHacek]e pogledamo tokratne rezultate, se je zelo o\[CHacek]itno \
+hitrost preplezane smeri skozi tri poiskuse pri ve\[CHacek]ini \
+izbolj\[SHacek]ala. Pri prvi smeri so dale\[CHacek] najbolj\[SHacek]i \
+rezultati v tretjem poiskusu - celonajslab\[SHacek]i je v tretjem poiskusu \
+splezal bolje kot v prej\[SHacek]njem poiskusu najbolj\[SHacek]i. Prav tako \
+so se pri drugi smeri rezultati izbolj\[SHacek]ali v zadnjem poiskusu. \
+Izstopa \[CapitalZHacek]iga, ki je podrl rekord preplezane druge smeri v \
+drugem poiskusu - po doma\[CHacek]e povedano je \[OpenCurlyQuote]fejkal\
+\[CloseCurlyQuote] smer in sko\[CHacek]il iz enega dela na drugega, kar ni po \
+pravilih. Rezultat pa so bili na splo\[SHacek]njo bolj\[SHacek]i kot pri prej\
+\[SHacek]njem, zgoraj opisanem treningu. \
+\>", "Text",
+ CellChangeTimes->{{3.759082791990037*^9, 3.759082794663393*^9}, {
+  3.759082983818921*^9, 3.759083213826285*^9}}],
+
+Cell["\<\
+Seminarska naloga se mi je zdela uporabna iz vidika matematike - \
+nau\[CHacek]ila sem se kar nekaj novih stvari, ki jih Mathematica zmore, \
+spoznala sem par lastnosti pri oblikovanju grafov in pridobivanju podatkov iz \
+tabel, poleg tega pa sem spoznala \[SHacek]e novo metodo za primerjanje \
+rezultatov svojih vade\[CHacek]ih, ki jo bom sigurno \[SHacek]e kdaj \
+uporabila.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7590828017430367`*^9, {3.7590832265164733`*^9, 3.7590832283383503`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7590832423187413`*^9, 3.759083242518617*^9}}],
+
+Cell["\[CapitalSHacek]pela \[CapitalSHacek]ter \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\
+\t\t\t\t\tFebruar 2019", "Text",
+ CellChangeTimes->{{3.7590832462733116`*^9, 3.7590832641912727`*^9}}]
+},
+WindowSize->{1600, 817},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 347, 6, 42, "Text"],
+Cell[908, 28, 346, 6, 32, "Text"],
+Cell[CellGroupData[{
+Cell[1279, 38, 150, 3, 51, "Input",
+ InitializationCell->True],
+Cell[1432, 43, 151, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1620, 50, 158, 3, 51, "Input",
+ InitializationCell->True],
+Cell[1781, 55, 162, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1980, 62, 198, 4, 51, "Input",
+ InitializationCell->True],
+Cell[2181, 68, 160, 2, 33, "Output"]
+}, Open  ]],
+Cell[2356, 73, 126, 1, 32, "Text"],
+Cell[CellGroupData[{
+Cell[2507, 78, 248, 5, 51, "Input",
+ InitializationCell->True],
+Cell[2758, 85, 156, 2, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2951, 92, 253, 6, 51, "Input",
+ InitializationCell->True],
+Cell[3207, 100, 2271, 46, 100, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5515, 151, 165, 3, 51, "Input",
+ InitializationCell->True],
+Cell[5683, 156, 1881, 36, 203, "Output"]
+}, Open  ]],
+Cell[7579, 195, 148, 2, 32, "Text"],
+Cell[CellGroupData[{
+Cell[7752, 201, 246, 5, 51, "Input",
+ InitializationCell->True],
+Cell[8001, 208, 106, 1, 33, "Output"]
+}, Open  ]],
+Cell[8122, 212, 124, 1, 32, "Text"],
+Cell[CellGroupData[{
+Cell[8271, 217, 419, 9, 74, "Input",
+ InitializationCell->True],
+Cell[8693, 228, 513, 9, 33, "Output"]
+}, Open  ]],
+Cell[9221, 240, 176, 4, 32, "Text"],
+Cell[CellGroupData[{
+Cell[9422, 248, 234, 5, 74, "Input",
+ InitializationCell->True],
+Cell[9659, 255, 1816, 36, 78, "Output"]
+}, Open  ]],
+Cell[11490, 294, 187, 4, 32, "Text"],
+Cell[11680, 300, 1354, 44, 51, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[13059, 348, 137, 3, 51, "Input",
+ InitializationCell->True],
+Cell[13199, 353, 92, 1, 33, "Output"]
+}, Open  ]],
+Cell[13306, 357, 147, 1, 32, "Text"],
+Cell[CellGroupData[{
+Cell[13478, 362, 223, 5, 51, "Input",
+ InitializationCell->True],
+Cell[13704, 369, 94, 1, 33, "Output"]
+}, Open  ]],
+Cell[13813, 373, 478, 14, 51, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[14316, 391, 131, 3, 51, "Input",
+ InitializationCell->True],
+Cell[14450, 396, 333, 6, 33, "Output"]
+}, Open  ]],
+Cell[14798, 405, 147, 1, 32, "Text"],
+Cell[CellGroupData[{
+Cell[14970, 410, 211, 4, 51, "Input",
+ InitializationCell->True],
+Cell[15184, 416, 238, 5, 33, "Output"]
+}, Open  ]],
+Cell[15437, 424, 155, 2, 32, "Text"],
+Cell[15595, 428, 149, 3, 33, "Input"],
+Cell[15747, 433, 308, 8, 51, InheritFromParent,
+ InitializationCell->True],
+Cell[16058, 443, 248, 7, 73, "Text"],
+Cell[CellGroupData[{
+Cell[16331, 454, 571, 16, 74, "Input",
+ InitializationCell->True],
+Cell[16905, 472, 234, 5, 33, "Output"]
+}, Open  ]],
+Cell[17154, 480, 264, 5, 32, "Text"],
+Cell[17421, 487, 198, 3, 33, "Input"],
+Cell[CellGroupData[{
+Cell[17644, 494, 480, 11, 33, "Input"],
+Cell[18127, 507, 312, 6, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18476, 518, 323, 9, 33, "Input"],
+Cell[18802, 529, 212, 5, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19051, 539, 320, 9, 33, "Input"],
+Cell[19374, 550, 211, 5, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19622, 560, 508, 13, 51, "Input",
+ InitializationCell->True],
+Cell[20133, 575, 1582, 39, 289, "Output"]
+}, Open  ]],
+Cell[21730, 617, 207, 4, 32, "Text"],
+Cell[CellGroupData[{
+Cell[21962, 625, 651, 16, 51, "Input",
+ InitializationCell->True],
+Cell[22616, 643, 1607, 40, 293, "Output"]
+}, Open  ]],
+Cell[24238, 686, 155, 3, 32, "Text"],
+Cell[CellGroupData[{
+Cell[24418, 693, 795, 18, 51, "Input",
+ InitializationCell->True],
+Cell[25216, 713, 1639, 40, 289, "Output"]
+}, Open  ]],
+Cell[26870, 756, 150, 2, 32, "Text"],
+Cell[27023, 760, 626, 10, 53, "Text"],
+Cell[CellGroupData[{
+Cell[27674, 774, 989, 23, 74, "Input",
+ InitializationCell->True],
+Cell[28666, 799, 2374, 53, 269, "Output"]
+}, Open  ]],
+Cell[31055, 855, 739, 12, 93, "Text"],
+Cell[CellGroupData[{
+Cell[31819, 871, 661, 16, 51, "Input",
+ InitializationCell->True],
+Cell[32483, 889, 4170, 87, 269, "Output"]
+}, Open  ]],
+Cell[36668, 979, 161, 3, 32, "Text"],
+Cell[CellGroupData[{
+Cell[36854, 986, 514, 14, 51, "Input",
+ InitializationCell->True],
+Cell[37371, 1002, 4381, 95, 230, "Output"]
+}, Open  ]],
+Cell[41767, 1100, 173, 5, 51, "Input",
+ InitializationCell->True],
+Cell[41943, 1107, 9233, 212, 539, InheritFromParent],
+Cell[51179, 1321, 912, 13, 93, "Text"],
+Cell[CellGroupData[{
+Cell[52116, 1338, 974, 22, 57, "Input",
+ InitializationCell->True],
+Cell[53093, 1362, 3846, 76, 663, "Output"]
+}, Open  ]],
+Cell[56954, 1441, 359, 9, 93, "Text"],
+Cell[CellGroupData[{
+Cell[57338, 1454, 257, 6, 51, "Input",
+ InitializationCell->True],
+Cell[57598, 1462, 1738, 37, 78, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59373, 1504, 166, 3, 51, "Input",
+ InitializationCell->True],
+Cell[59542, 1509, 1550, 33, 184, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61129, 1547, 319, 7, 74, "Input",
+ InitializationCell->True],
+Cell[61451, 1556, 387, 7, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61875, 1568, 307, 6, 74, "Input",
+ InitializationCell->True],
+Cell[62185, 1576, 1363, 29, 56, "Output"]
+}, Open  ]],
+Cell[63563, 1608, 1446, 46, 51, "Input",
+ InitializationCell->True],
+Cell[65012, 1656, 602, 17, 51, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[65639, 1677, 521, 15, 74, "Input",
+ InitializationCell->True],
+Cell[66163, 1694, 281, 7, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66481, 1706, 583, 15, 51, "Input",
+ InitializationCell->True],
+Cell[67067, 1723, 3594, 73, 269, "Output"]
+}, Open  ]],
+Cell[70676, 1799, 89, 1, 56, "Input"],
+Cell[CellGroupData[{
+Cell[70790, 1804, 815, 19, 39, "Input"],
+Cell[71608, 1825, 3282, 68, 573, "Output"]
+}, Open  ]],
+Cell[74905, 1896, 928, 14, 73, "Text"],
+Cell[75836, 1912, 498, 9, 53, "Text"],
+Cell[76337, 1923, 148, 2, 78, "Input"],
+Cell[76488, 1927, 181, 2, 32, "Text"]
+}
+]
+*)
+
